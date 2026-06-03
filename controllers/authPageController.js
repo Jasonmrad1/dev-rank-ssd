@@ -131,7 +131,12 @@ exports.handleRegister = async (req, res) => {
 };
 
 exports.logout = (req, res) => {
-  res.clearCookie("devrank_token");
+  res.clearCookie("devrank_token", {
+    httpOnly: true,
+    secure: true,
+    sameSite: "none",
+    path: "/",
+  });
   return res.redirect("/login");
 };
 
