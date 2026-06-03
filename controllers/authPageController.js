@@ -100,7 +100,8 @@ exports.handleLogin = async (req, res) => {
 
     res.cookie("devrank_token", token, {
       httpOnly: true,
-      sameSite: "lax",
+      secure: true,
+      sameSite: "none",
       maxAge: 1000 * 60 * 60 * 24 * 7,
     });
 
@@ -117,7 +118,8 @@ exports.handleRegister = async (req, res) => {
 
     res.cookie("devrank_token", token, {
       httpOnly: true,
-      sameSite: "lax",
+      secure: true,
+      sameSite: "none",
       maxAge: 1000 * 60 * 60 * 24 * 7,
       path: "/",
     });
